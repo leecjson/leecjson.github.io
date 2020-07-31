@@ -6,54 +6,18 @@
     <description>Recent content on 秃猫李的电子博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 28 Jul 2020 04:14:08 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2020 11:47:49 +0800</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Test1</title>
-      <link>/cs/test1/</link>
-      <pubDate>Tue, 28 Jul 2020 04:14:08 +0800</pubDate>
+      <title>使用JSDoc代替TypeScript实现类型检查</title>
+      <link>/cs/use-jsdoc-instead-of-typescript/</link>
+      <pubDate>Fri, 31 Jul 2020 11:47:49 +0800</pubDate>
       
-      <guid>/cs/test1/</guid>
-      <description>haha test1</description>
-    </item>
-    
-    <item>
-      <title>Easy-GateWay 一个超方便的服务网关工具</title>
-      <link>/cs/get-started/</link>
-      <pubDate>Fri, 24 Jul 2020 21:43:23 +0800</pubDate>
-      
-      <guid>/cs/get-started/</guid>
-      <description>Headline2 Headline3 Headline4 Headline5 Headline6 class Database class Statement class Database new Database() Database#prepare() (see Statement) Database#transaction() Database#pragma() Database#backup() Database#function() Database#aggregate() Database#loadExtension() Database#exec() Database#close() Properties new Database(path, [options]) Creates a new database connection. If the database file does not exist, it is created. This happens synchronously, which means you can start executing queries right away. You can create an in-memory database by passing &amp;quot;:memory:&amp;quot; as the first argument. Various options</description>
-    </item>
-    
-    <item>
-      <title>Global</title>
-      <link>/cs/global-econ/</link>
-      <pubDate>Fri, 24 Jul 2020 21:43:23 +0800</pubDate>
-      
-      <guid>/cs/global-econ/</guid>
-      <description>Global Econ   gsg</description>
-    </item>
-    
-    <item>
-      <title>创建自己的 .js.org 域名网站</title>
-      <link>/cs/get-started2/</link>
-      <pubDate>Fri, 24 Jul 2020 21:43:23 +0800</pubDate>
-      
-      <guid>/cs/get-started2/</guid>
-      <description>API class Database class Statement class Database new Database() Database#prepare() (see Statement) Database#transaction() Database#pragma() Database#backup() Database#function() Database#aggregate() Database#loadExtension() Database#exec() Database#close() Properties new Database(path, [options]) Creates a new database connection. If the database file does not exist, it is created. This happens synchronously, which means you can start executing queries right away. You can create an in-memory database by passing &amp;quot;:memory:&amp;quot; as the first argument. Various options are accepted: options.readonly: open</description>
-    </item>
-    
-    <item>
-      <title>前后端跨语言同构——邂逅一场美丽的编程童话</title>
-      <link>/cs/get-started3/</link>
-      <pubDate>Fri, 24 Jul 2020 21:43:23 +0800</pubDate>
-      
-      <guid>/cs/get-started3/</guid>
-      <description>API class Database class Statement class Database new Database() Database#prepare() (see Statement) Database#transaction() Database#pragma() Database#backup() Database#function() Database#aggregate() Database#loadExtension() Database#exec() Database#close() Properties new Database(path, [options]) Creates a new database connection. If the database file does not exist, it is created. This happens synchronously, which means you can start executing queries right away. You can create an in-memory database by passing &amp;quot;:memory:&amp;quot; as the first argument. Various options are accepted: options.readonly: open</description>
+      <guid>/cs/use-jsdoc-instead-of-typescript/</guid>
+      <description>TypeScript是个好东西，不过自从使用TypeScript以后带来了以下几个问题： 代码变的更加复杂 需要正确的设置一些非必要却很复杂的类</description>
     </item>
     
     <item>

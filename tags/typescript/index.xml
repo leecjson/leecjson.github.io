@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>JavaScript on 秃猫李的电子博客</title>
-    <link>/tags/javascript/</link>
-    <description>Recent content in JavaScript on 秃猫李的电子博客</description>
+    <title>TypeScript on 秃猫李的电子博客</title>
+    <link>/tags/typescript/</link>
+    <description>Recent content in TypeScript on 秃猫李的电子博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 31 Jul 2020 11:47:49 +0800</lastBuildDate>
     
-	<atom:link href="/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
