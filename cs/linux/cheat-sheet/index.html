@@ -18,7 +18,7 @@
 <meta itemprop="description" content="命令 pwd：打印当前进程的工作目录 hostname：打印主机名称 exit：退出当前登录的用户 man：跟一个命令名，调出此命令的操作手册，非常">
 <meta itemprop="datePublished" content="2020-08-12T07:59:46+08:00" />
 <meta itemprop="dateModified" content="2020-08-12T07:59:46+08:00" />
-<meta itemprop="wordCount" content="1942">
+<meta itemprop="wordCount" content="2083">
 
 
 
@@ -187,6 +187,13 @@ crontab a.txt <span style="color:#75715e"># 从a.txt中读取</span>
 </code></pre></div><ul>
 <li><code>ping</code>：icmq消息发送</li>
 <li><code>ifconfig</code>：用于显示或设置网络设备，类似于Win中的ipconfig</li>
+<li><code>halt</code>： 关机不切电源？terminates all processes and shuts down the cpu.</li>
+<li><code>poweroff</code>： is exactly like halt, but it also turns off the unit itself (lights and everything on a PC). It sends an ACPI command to the board, then to the PSU, to cut the power.</li>
+<li><code>shutdown</code>：一般关机用shutdown就可以了，shutdown is like poweroff, but it also runs the shutdown scripts.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">shutdown now <span style="color:#75715e"># 立即关闭，否则会等一分钟</span>
+</code></pre></div><ul>
+<li><code>reboot</code>：重启</li>
 </ul>
 <h2 id="ubuntu">Ubuntu</h2>
 <ul>
