@@ -6,17 +6,26 @@
     <description>Recent content on 杰森猫的电子博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 31 Jul 2020 11:47:49 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 12 Aug 2020 07:59:46 +0800</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Linux Cheat Sheet（Linux小抄）</title>
+      <link>/cs/linux/cheat-sheet/</link>
+      <pubDate>Wed, 12 Aug 2020 07:59:46 +0800</pubDate>
+      
+      <guid>/cs/linux/cheat-sheet/</guid>
+      <description>命令 pwd：打印当前进程的工作目录 hostname：打印主机名称 exit：退出当前登录的用户 man：跟一个命令名，调出此命令的操作手册，非常</description>
+    </item>
+    
+    <item>
       <title>使用JSDoc代替TypeScript实现类型检查</title>
-      <link>/cs/use-jsdoc-instead-of-typescript/</link>
+      <link>/cs/lang/js/use-jsdoc-instead-of-typescript/</link>
       <pubDate>Fri, 31 Jul 2020 11:47:49 +0800</pubDate>
       
-      <guid>/cs/use-jsdoc-instead-of-typescript/</guid>
+      <guid>/cs/lang/js/use-jsdoc-instead-of-typescript/</guid>
       <description>TypeScript是个好东西，不过自从使用TypeScript以后带来了以下几个问题： 代码变的更加复杂 需要正确的设置一些非必要却很复杂的类</description>
     </item>
     
