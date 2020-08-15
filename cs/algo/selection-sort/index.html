@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="keywords" content="C&#43;&#43;,Javascript,Node,Java,C#,编程,前端,Linux">
+  <meta name="description" content="研究计算机程序设计">
+  <meta name="author" content="leecjson">
+  <meta property="og:title" content="Selection Sort 选择排序" />
+<meta property="og:description" content="复杂度 时间 Best: \( \Omega(n^2) \), Average: \( \Theta(n^2) \), Worst: \( O(n^2) \) 空间 \( O(1) \) 核心实现 两层循环，找到并记录其中最小的元素位置，最后跟已排序好元素的Next元素做个替换。 代码 #include" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/cs/algo/selection-sort/" />
+<meta property="article:published_time" content="2020-08-13T12:45:39+08:00" />
+<meta property="article:modified_time" content="2020-08-13T12:45:39+08:00" />
+<meta itemprop="name" content="Selection Sort 选择排序">
+<meta itemprop="description" content="复杂度 时间 Best: \( \Omega(n^2) \), Average: \( \Theta(n^2) \), Worst: \( O(n^2) \) 空间 \( O(1) \) 核心实现 两层循环，找到并记录其中最小的元素位置，最后跟已排序好元素的Next元素做个替换。 代码 #include">
+<meta itemprop="datePublished" content="2020-08-13T12:45:39+08:00" />
+<meta itemprop="dateModified" content="2020-08-13T12:45:39+08:00" />
+<meta itemprop="wordCount" content="224">
+
+
+
+<meta itemprop="keywords" content="Algorithm,C&#43;&#43;," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Selection Sort 选择排序"/>
+<meta name="twitter:description" content="复杂度 时间 Best: \( \Omega(n^2) \), Average: \( \Theta(n^2) \), Worst: \( O(n^2) \) 空间 \( O(1) \) 核心实现 两层循环，找到并记录其中最小的元素位置，最后跟已排序好元素的Next元素做个替换。 代码 #include"/>
+<title>Selection Sort 选择排序 | 杰森猫的电子博客</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous"><link rel="stylesheet"
+    href="../../../dist/hash/fontawesome.84d8ad2b4fcdc0f0c58247e778133b3a/css/all.min.css">
+  <link rel="stylesheet"
+    href="../../../dist/hash/main.92dcc3c88e2c5b46612c.css">
+</head>
+<body>
+  
+  <header class="app__topbar elevation-z4">
+    <a class="app__brand" href="../../../">杰森猫的电子博客</a>
+    <div class="app__topbar-link-list">
+      <a target="_blank" class="app__topbar-link" href="https://github.com/leecjson"><i class="fab fa-github"></i></a>
+    </div>
+  </header>
+  
+
+  <main>
+  <article class="markdown-body">
+    <h1 style="margin-bottom: 64px;">Selection Sort 选择排序</h1><h2 id="复杂度">复杂度</h2>
+<h4 id="时间">时间</h4>
+<p>Best: \( \Omega(n^2) \), Average: \( \Theta(n^2) \), Worst: \( O(n^2) \)</p>
+<h4 id="空间">空间</h4>
+<p>\( O(1) \)</p>
+<h2 id="核心实现">核心实现</h2>
+<p>两层循环，找到并记录其中最小的元素位置，最后跟已排序好元素的Next元素做个替换。</p>
+<p style="display: flex; justify-content: center;">
+  <img alt="Quick Sort" src="https://leecjson-website-bucket.oss-cn-beijing.aliyuncs.com/assets/selection-sort.gif" />
+</p>
+<h4 id="代码">代码</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;selection_sort.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;utility&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">namespace</span> algotest {
+  <span style="color:#75715e">/**
+</span><span style="color:#75715e">   * avg: O(n^2)
+</span><span style="color:#75715e">   */</span>
+  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">selection_sort</span>(std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">uint32_t</span><span style="color:#f92672">&gt;&amp;</span> vec) {
+    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span> len <span style="color:#f92672">=</span> vec.size();
+    <span style="color:#66d9ef">if</span> (len <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">2</span>) {
+      <span style="color:#66d9ef">return</span>;
+    }
+
+    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span> last <span style="color:#f92672">=</span> len <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+    <span style="color:#66d9ef">for</span> (size_t i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> last; <span style="color:#f92672">++</span>i) {
+      <span style="color:#66d9ef">auto</span> imin <span style="color:#f92672">=</span> i; <span style="color:#75715e">// 记录的最小值的下标
+</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> j <span style="color:#f92672">=</span> i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;</span> len; <span style="color:#f92672">++</span>j) {
+        <span style="color:#66d9ef">if</span> (vec[j] <span style="color:#f92672">&lt;</span> vec[imin]) {
+          imin <span style="color:#f92672">=</span> j;
+        }
+      }
+      <span style="color:#66d9ef">if</span> (i <span style="color:#f92672">!=</span> imin) {
+        std<span style="color:#f92672">::</span>swap(vec[i], vec[imin]);
+      }
+    }
+  }
+}
+</code></pre></div><h2 id="总结">总结</h2>
+<p>一样没什么卵用的暴力算法，一般能出现使用场景的也会被insertion sort所代替，所以说，这个算法真的是一点卵用也没有。</p>
+</article>
+</main>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+</body>
+
+</html>

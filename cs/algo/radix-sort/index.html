@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="keywords" content="C&#43;&#43;,Javascript,Node,Java,C#,编程,前端,Linux">
+  <meta name="description" content="研究计算机程序设计">
+  <meta name="author" content="leecjson">
+  <meta property="og:title" content="Radix Sort 基数排序" />
+<meta property="og:description" content="复杂度 时间 Best: \( \Omega(nk) \), Average: \( \Theta(nk) \), Worst: \( O(nk) \) 空间 \( O(n&#43;k) \) 其实k=10 核心实现 只能应用到数字的排序算法。先按个位数排序，再按十位排序，以此类推，每次排序的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/cs/algo/radix-sort/" />
+<meta property="article:published_time" content="2020-08-15T08:12:55+08:00" />
+<meta property="article:modified_time" content="2020-08-15T08:12:55+08:00" />
+<meta itemprop="name" content="Radix Sort 基数排序">
+<meta itemprop="description" content="复杂度 时间 Best: \( \Omega(nk) \), Average: \( \Theta(nk) \), Worst: \( O(nk) \) 空间 \( O(n&#43;k) \) 其实k=10 核心实现 只能应用到数字的排序算法。先按个位数排序，再按十位排序，以此类推，每次排序的">
+<meta itemprop="datePublished" content="2020-08-15T08:12:55+08:00" />
+<meta itemprop="dateModified" content="2020-08-15T08:12:55+08:00" />
+<meta itemprop="wordCount" content="324">
+
+
+
+<meta itemprop="keywords" content="Algorithm,C&#43;&#43;," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Radix Sort 基数排序"/>
+<meta name="twitter:description" content="复杂度 时间 Best: \( \Omega(nk) \), Average: \( \Theta(nk) \), Worst: \( O(nk) \) 空间 \( O(n&#43;k) \) 其实k=10 核心实现 只能应用到数字的排序算法。先按个位数排序，再按十位排序，以此类推，每次排序的"/>
+<title>Radix Sort 基数排序 | 杰森猫的电子博客</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous"><link rel="stylesheet"
+    href="../../../dist/hash/fontawesome.84d8ad2b4fcdc0f0c58247e778133b3a/css/all.min.css">
+  <link rel="stylesheet"
+    href="../../../dist/hash/main.92dcc3c88e2c5b46612c.css">
+</head>
+<body>
+  
+  <header class="app__topbar elevation-z4">
+    <a class="app__brand" href="../../../">杰森猫的电子博客</a>
+    <div class="app__topbar-link-list">
+      <a target="_blank" class="app__topbar-link" href="https://github.com/leecjson"><i class="fab fa-github"></i></a>
+    </div>
+  </header>
+  
+
+  <main>
+  <article class="markdown-body">
+    <h1 style="margin-bottom: 64px;">Radix Sort 基数排序</h1><h2 id="复杂度">复杂度</h2>
+<h4 id="时间">时间</h4>
+<p>Best: \( \Omega(nk) \), Average: \( \Theta(nk) \), Worst: \( O(nk) \)</p>
+<h4 id="空间">空间</h4>
+<p>\( O(n+k) \) 其实k=10</p>
+<h2 id="核心实现">核心实现</h2>
+<p>只能应用到数字的排序算法。先按个位数排序，再按十位排序，以此类推，每次排序的元素应用range为10的counting sort，应用次数取决于最大元素的总位数。</p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+    src="https://www.youtube.com/embed/nu4gDuFabIM" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen></iframe>
+  </iframe>
+</div>
+<h4 id="代码">代码</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;radix_sort.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;counting_sort.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;utility&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;type_traits&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">namespace</span> {
+  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">_counting_sort_with</span>(std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">uint32_t</span><span style="color:#f92672">&gt;&amp;</span> vec, std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">uint32_t</span><span style="color:#f92672">&gt;&amp;</span> indices, std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">uint32_t</span><span style="color:#f92672">&gt;&amp;</span> output, <span style="color:#66d9ef">uint32_t</span> exp) {
+    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span> len <span style="color:#f92672">=</span> vec.size();
+    std<span style="color:#f92672">::</span>fill(indices.begin(), indices.end(), <span style="color:#ae81ff">0</span>);
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span> val : vec) {
+      <span style="color:#f92672">++</span>indices[<span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span>size_t<span style="color:#f92672">&gt;</span>(val <span style="color:#f92672">/</span> exp <span style="color:#f92672">%</span> <span style="color:#ae81ff">10</span>)];
+    }
+    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span> range <span style="color:#f92672">=</span> indices.size();
+    <span style="color:#66d9ef">for</span> (size_t i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;</span> range; <span style="color:#f92672">++</span>i, <span style="color:#f92672">++</span>j) {
+      indices[j] <span style="color:#f92672">=</span> indices[i] <span style="color:#f92672">+</span> indices[j];
+    }
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> i <span style="color:#f92672">=</span> len; i<span style="color:#f92672">--</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>;) {
+      <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span> val <span style="color:#f92672">=</span> vec[i];
+      output[<span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span>size_t<span style="color:#f92672">&gt;</span>(<span style="color:#f92672">--</span>indices[<span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span>size_t<span style="color:#f92672">&gt;</span>(val <span style="color:#f92672">/</span> exp <span style="color:#f92672">%</span> <span style="color:#ae81ff">10</span>)])] <span style="color:#f92672">=</span> val;
+    }
+    vec <span style="color:#f92672">=</span> output;
+    <span style="color:#75715e">//vec = std::move(output); // swap memory
+</span><span style="color:#75715e"></span>  }
+}
+
+<span style="color:#66d9ef">namespace</span> algotest {
+
+  <span style="color:#75715e">/**
+</span><span style="color:#75715e">   * theta(d*(n+k))
+</span><span style="color:#75715e">   * 
+</span><span style="color:#75715e">   */</span>
+  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">radix_sort</span>(std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">uint32_t</span><span style="color:#f92672">&gt;&amp;</span> vec) {
+    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span> len <span style="color:#f92672">=</span> vec.size();
+    <span style="color:#66d9ef">if</span> (len <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">2</span>) {
+      <span style="color:#66d9ef">return</span>;
+    }
+    <span style="color:#66d9ef">auto</span> max <span style="color:#f92672">=</span> vec[<span style="color:#ae81ff">0</span>];
+    <span style="color:#66d9ef">for</span> (size_t i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;</span> len; <span style="color:#f92672">++</span>i) {
+      <span style="color:#66d9ef">if</span> (vec[i] <span style="color:#f92672">&gt;</span> max) {
+        max <span style="color:#f92672">=</span> vec[i];
+      }
+    }
+
+    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">uint32_t</span><span style="color:#f92672">&gt;</span> indices(<span style="color:#ae81ff">10</span>), output(vec.size());
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">uint32_t</span> exp <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; max <span style="color:#f92672">/</span> exp <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>; exp <span style="color:#f92672">*=</span> <span style="color:#ae81ff">10</span>) { <span style="color:#75715e">// 位数不能超过数组中最大的元素
+</span><span style="color:#75715e"></span>      _counting_sort_with(vec, indices, output, exp);
+    }
+  }
+}
+</code></pre></div><h2 id="总结">总结</h2>
+<p>把counting sort真正意义上变成通用排序。</p>
+</article>
+</main>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+</body>
+
+</html>

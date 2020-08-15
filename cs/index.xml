@@ -6,13 +6,85 @@
     <description>Recent content in Cs on 杰森猫的电子博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 12 Aug 2020 07:59:46 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 15 Aug 2020 08:12:55 +0800</lastBuildDate>
     
 	<atom:link href="/cs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Linux Cheat Sheet（Linux小抄）</title>
+      <title>Radix Sort 基数排序</title>
+      <link>/cs/algo/radix-sort/</link>
+      <pubDate>Sat, 15 Aug 2020 08:12:55 +0800</pubDate>
+      
+      <guid>/cs/algo/radix-sort/</guid>
+      <description>复杂度 时间 Best: \( \Omega(nk) \), Average: \( \Theta(nk) \), Worst: \( O(nk) \) 空间 \( O(n+k) \) 其实k=10 核心实现 只能应用到数字的排序算法。先按个位数排序，再按十位排序，以此类推，每次排序的</description>
+    </item>
+    
+    <item>
+      <title>Bucket Sort 桶排序</title>
+      <link>/cs/algo/bucket-sort/</link>
+      <pubDate>Fri, 14 Aug 2020 18:08:15 +0800</pubDate>
+      
+      <guid>/cs/algo/bucket-sort/</guid>
+      <description>复杂度 时间 Best: \( \Omega(n+k) \), Average: \( \Theta(n+k) \), Worst: \( O(n^2) \) 空间 \( O(n) \) 核心实现 bucket sort相比counting sort加了一些处理，规避了range过大的问题，但同样b</description>
+    </item>
+    
+    <item>
+      <title>Heap Sort 堆排序</title>
+      <link>/cs/algo/heap-sort/</link>
+      <pubDate>Fri, 14 Aug 2020 17:06:18 +0800</pubDate>
+      
+      <guid>/cs/algo/heap-sort/</guid>
+      <description>复杂度 时间 Best: \( \Omega(n*log_2(n)) \), Average: \( \Theta(n*log_2(n)) \), Worst: \( O(n*log_2(n)) \) 空间 \( O(1) \) 核心实现 堆是把一颗二叉树从左到右从上到下依次写在数组里。最大堆中父节点总是大于等于子节点，如果你</description>
+    </item>
+    
+    <item>
+      <title>Counting Sort 计数排序</title>
+      <link>/cs/algo/counting-sort/</link>
+      <pubDate>Thu, 13 Aug 2020 13:00:45 +0800</pubDate>
+      
+      <guid>/cs/algo/counting-sort/</guid>
+      <description>复杂度 时间 Best: \( \Omega(n+k) \), Average: \( \Theta(n+k) \), Worst: \( O(n+k) \) 空间 \( O(k) \) 核心实现 直接把要比较的数值当内存偏移量来用。 代码 #include &amp;lt;utility&amp;gt;#include &amp;lt;type_traits&amp;gt; namespace algotest { /** * 借助indices临时空间，将v</description>
+    </item>
+    
+    <item>
+      <title>Selection Sort 选择排序</title>
+      <link>/cs/algo/selection-sort/</link>
+      <pubDate>Thu, 13 Aug 2020 12:45:39 +0800</pubDate>
+      
+      <guid>/cs/algo/selection-sort/</guid>
+      <description>复杂度 时间 Best: \( \Omega(n^2) \), Average: \( \Theta(n^2) \), Worst: \( O(n^2) \) 空间 \( O(1) \) 核心实现 两层循环，找到并记录其中最小的元素位置，最后跟已排序好元素的Next元素做个替换。 代码 #include</description>
+    </item>
+    
+    <item>
+      <title>Insertion Sort 插入排序</title>
+      <link>/cs/algo/insertion-sort/</link>
+      <pubDate>Thu, 13 Aug 2020 11:48:59 +0800</pubDate>
+      
+      <guid>/cs/algo/insertion-sort/</guid>
+      <description>复杂度 时间 Best: \( \Omega(n) \), Average: \( \Theta(n^2) \), Worst: \( O(n^2) \) 空间 \( O(1) \) 核心实现 从i开始跟i-1对比，如果小于i-1就跟它做个调换，然后继续对比对比调换。 代码 #include &amp;#34;insertion_sort.h&amp;#34; namespace algotest {</description>
+    </item>
+    
+    <item>
+      <title>Merge Sort 合并排序</title>
+      <link>/cs/algo/merge-sort/</link>
+      <pubDate>Thu, 13 Aug 2020 11:09:42 +0800</pubDate>
+      
+      <guid>/cs/algo/merge-sort/</guid>
+      <description>复杂度 时间 Best: \( \Omega(n*log_2(n)) \), Average: \( \Theta(n*log_2(n)) \), Worst: \( O(n*log_2(n)) \) 空间 \( O(n) \) 核心实现 把一个数组平均分成左右两段，分别排序，最后的结果就是左数组有序，右数组也有序，然后想个办</description>
+    </item>
+    
+    <item>
+      <title>Quick Sort 快速排序</title>
+      <link>/cs/algo/quick-sort/</link>
+      <pubDate>Thu, 13 Aug 2020 07:00:24 +0800</pubDate>
+      
+      <guid>/cs/algo/quick-sort/</guid>
+      <description>复杂度 时间 Best: \( \Omega(n*log_2(n)) \), Average: \( \Theta(n*log_2(n)) \), Worst: \( O(n^2) \) 空间 \( O(log_2(n)) \) 核心实现 快速排序的核心思想是先给数组做个分区，分区函数会在数组中找个元素pivot，并且保证要把</description>
+    </item>
+    
+    <item>
+      <title>Linux 笔记</title>
       <link>/cs/linux/cheat-sheet/</link>
       <pubDate>Wed, 12 Aug 2020 07:59:46 +0800</pubDate>
       
@@ -26,7 +98,7 @@
       <pubDate>Fri, 31 Jul 2020 11:47:49 +0800</pubDate>
       
       <guid>/cs/lang/js/use-jsdoc-instead-of-typescript/</guid>
-      <description>TypeScript是个好东西，不过自从使用TypeScript以后带来了以下几个问题： 代码变的更加复杂 需要正确的设置一些非必要却很复杂的类</description>
+      <description>概述 TypeScript是个好东西，不过自从使用TypeScript以后带来了以下几个问题： 代码变的更加复杂 需要正确的设置一些非必要却很复杂</description>
     </item>
     
   </channel>

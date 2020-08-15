@@ -6,10 +6,28 @@
     <description>Recent content in Tags on 杰森猫的电子博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 12 Aug 2020 07:59:46 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 15 Aug 2020 08:12:55 +0800</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Algorithm</title>
+      <link>/tags/algorithm/</link>
+      <pubDate>Sat, 15 Aug 2020 08:12:55 +0800</pubDate>
+      
+      <guid>/tags/algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>/tags/c&#43;&#43;/</link>
+      <pubDate>Sat, 15 Aug 2020 08:12:55 +0800</pubDate>
+      
+      <guid>/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Linux</title>

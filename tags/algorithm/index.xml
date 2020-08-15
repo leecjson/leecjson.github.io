@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>杰森猫的电子博客</title>
-    <link>/</link>
-    <description>Recent content on 杰森猫的电子博客</description>
+    <title>Algorithm on 杰森猫的电子博客</title>
+    <link>/tags/algorithm/</link>
+    <description>Recent content in Algorithm on 杰森猫的电子博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 15 Aug 2020 08:12:55 +0800</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -81,33 +81,6 @@
       
       <guid>/cs/algo/quick-sort/</guid>
       <description>复杂度 时间 Best: \( \Omega(n*log_2(n)) \), Average: \( \Theta(n*log_2(n)) \), Worst: \( O(n^2) \) 空间 \( O(log_2(n)) \) 核心实现 快速排序的核心思想是先给数组做个分区，分区函数会在数组中找个元素pivot，并且保证要把</description>
-    </item>
-    
-    <item>
-      <title>Linux 笔记</title>
-      <link>/cs/linux/cheat-sheet/</link>
-      <pubDate>Wed, 12 Aug 2020 07:59:46 +0800</pubDate>
-      
-      <guid>/cs/linux/cheat-sheet/</guid>
-      <description>命令 pwd：打印当前进程的工作目录 hostname：打印主机名称 exit：退出当前登录的用户 man：跟一个命令名，调出此命令的操作手册，非常</description>
-    </item>
-    
-    <item>
-      <title>使用JSDoc代替TypeScript实现类型检查</title>
-      <link>/cs/lang/js/use-jsdoc-instead-of-typescript/</link>
-      <pubDate>Fri, 31 Jul 2020 11:47:49 +0800</pubDate>
-      
-      <guid>/cs/lang/js/use-jsdoc-instead-of-typescript/</guid>
-      <description>概述 TypeScript是个好东西，不过自从使用TypeScript以后带来了以下几个问题： 代码变的更加复杂 需要正确的设置一些非必要却很复杂</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/archives/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/archives/</guid>
-      <description>归档文章</description>
     </item>
     
   </channel>

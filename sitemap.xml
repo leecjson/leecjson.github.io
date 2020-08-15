@@ -4,13 +4,68 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-08-12T07:59:46+08:00</lastmod>
+    <lastmod>2020-08-15T08:12:55+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>/tags/algorithm/</loc>
+    <lastmod>2020-08-15T08:12:55+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/c&#43;&#43;/</loc>
+    <lastmod>2020-08-15T08:12:55+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/cs/</loc>
-    <lastmod>2020-08-12T07:59:46+08:00</lastmod>
+    <lastmod>2020-08-15T08:12:55+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/cs/algo/radix-sort/</loc>
+    <lastmod>2020-08-15T08:12:55+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-08-15T08:12:55+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/cs/algo/bucket-sort/</loc>
+    <lastmod>2020-08-14T18:08:15+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/cs/algo/heap-sort/</loc>
+    <lastmod>2020-08-14T17:06:18+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/cs/algo/counting-sort/</loc>
+    <lastmod>2020-08-13T13:00:45+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/cs/algo/selection-sort/</loc>
+    <lastmod>2020-08-13T12:45:39+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/cs/algo/insertion-sort/</loc>
+    <lastmod>2020-08-13T11:48:59+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/cs/algo/merge-sort/</loc>
+    <lastmod>2020-08-13T11:09:42+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/cs/algo/quick-sort/</loc>
+    <lastmod>2020-08-13T07:00:24+08:00</lastmod>
   </url>
   
   <url>
@@ -20,11 +75,6 @@
   
   <url>
     <loc>/cs/linux/cheat-sheet/</loc>
-    <lastmod>2020-08-12T07:59:46+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2020-08-12T07:59:46+08:00</lastmod>
   </url>
   
