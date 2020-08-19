@@ -13,10 +13,10 @@
     
     <item>
       <title>使用JSDoc代替TypeScript实现类型检查</title>
-      <link>/cs/lang/js/use-jsdoc-instead-of-typescript/</link>
+      <link>/cs/javascript/use-jsdoc-instead-of-typescript/</link>
       <pubDate>Fri, 31 Jul 2020 11:47:49 +0800</pubDate>
       
-      <guid>/cs/lang/js/use-jsdoc-instead-of-typescript/</guid>
+      <guid>/cs/javascript/use-jsdoc-instead-of-typescript/</guid>
       <description>概述 TypeScript是个好东西，不过自从使用TypeScript以后带来了以下几个问题： 代码变的更加复杂 需要正确的设置一些非必要却很复杂</description>
     </item>
     
