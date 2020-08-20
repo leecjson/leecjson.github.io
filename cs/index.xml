@@ -6,10 +6,19 @@
     <description>Recent content in Cs on 杰森猫的电子博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 15 Aug 2020 08:12:55 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 19 Aug 2020 16:43:53 +0800</lastBuildDate>
     
 	<atom:link href="/cs/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>开始使用 Maven 构建 Java 工程</title>
+      <link>/cs/java/using-maven/</link>
+      <pubDate>Wed, 19 Aug 2020 16:43:53 +0800</pubDate>
+      
+      <guid>/cs/java/using-maven/</guid>
+      <description>Repository Maven的仓库分为Local Repository和Remote Repository，一般在执行mvn命令时会从Remote Reposit</description>
+    </item>
     
     <item>
       <title>Radix Sort 基数排序</title>
@@ -93,7 +102,7 @@
     </item>
     
     <item>
-      <title>使用JSDoc代替TypeScript实现类型检查</title>
+      <title>使用 JSDoc 代替 TypeScript 实现类型检查</title>
       <link>/cs/javascript/use-jsdoc-instead-of-typescript/</link>
       <pubDate>Fri, 31 Jul 2020 11:47:49 +0800</pubDate>
       

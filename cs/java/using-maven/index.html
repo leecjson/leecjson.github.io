@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="keywords" content="C&#43;&#43;,Javascript,Node,Java,C#,编程,前端,Linux">
+  <meta name="description" content="研究计算机程序设计">
+  <meta name="author" content="leecjson">
+  <meta property="og:title" content="开始使用 Maven 构建 Java 工程" />
+<meta property="og:description" content="Repository Maven的仓库分为Local Repository和Remote Repository，一般在执行mvn命令时会从Remote Reposit" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/cs/java/using-maven/" />
+<meta property="article:published_time" content="2020-08-19T16:43:53+08:00" />
+<meta property="article:modified_time" content="2020-08-19T16:43:53+08:00" />
+<meta itemprop="name" content="开始使用 Maven 构建 Java 工程">
+<meta itemprop="description" content="Repository Maven的仓库分为Local Repository和Remote Repository，一般在执行mvn命令时会从Remote Reposit">
+<meta itemprop="datePublished" content="2020-08-19T16:43:53+08:00" />
+<meta itemprop="dateModified" content="2020-08-19T16:43:53+08:00" />
+<meta itemprop="wordCount" content="1748">
+
+
+
+<meta itemprop="keywords" content="Java," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="开始使用 Maven 构建 Java 工程"/>
+<meta name="twitter:description" content="Repository Maven的仓库分为Local Repository和Remote Repository，一般在执行mvn命令时会从Remote Reposit"/>
+<title>开始使用 Maven 构建 Java 工程 | 杰森猫的电子博客</title>
+
+  <link rel="stylesheet"
+    href="../../../dist/hash/fontawesome.84d8ad2b4fcdc0f0c58247e778133b3a/css/all.min.css">
+  <link rel="stylesheet"
+    href="../../../dist/hash/main.92dcc3c88e2c5b46612c.css">
+</head>
+<body>
+  
+  <header class="app__topbar elevation-z4">
+    <a class="app__brand" href="../../../">杰森猫的电子博客</a>
+    <div class="app__topbar-link-list">
+      <a target="_blank" class="app__topbar-link" href="https://github.com/leecjson"><i class="fab fa-github"></i></a>
+    </div>
+  </header>
+  
+
+  <main>
+  <article class="markdown-body">
+    <h1 style="margin-bottom: 64px;">开始使用 Maven 构建 Java 工程</h1><h2 id="repository">Repository</h2>
+<p>Maven的仓库分为Local Repository和Remote Repository，一般在执行mvn命令时会从Remote Repository下载一些plugin和所使用的依赖组件，并加入到Local Repository，当第二次执行该命令时会直接从Local Repository中使用该组件。</p>
+<p>Local Repository的位置是：<code>${user.home}/.m2/repository</code></p>
+<h2 id="lifecycle-与-phase">Lifecycle 与 Phase</h2>
+<p>Phase代表阶段，Lifecycle是由不同阶段按顺序组成的生命周期。Phase可以直接通过mvn执行：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mvn verify <span style="color:#75715e"># 指定执行到verify</span>
+</code></pre></div><p>从侧面可以看出不同生命周期内的Phases具有唯一标识符。当执行某个Phase时其执行顺序是从当前Lifecycle的第一个Phase按顺序执行到指定的Phase。</p>
+<p>Maven目前有三个生命周期，下面同时列出其包含的部分Phases</p>
+<h4 id="default-lifecycle"><code>default lifecycle</code></h4>
+<p>Although hardly a comprehensive list, these are the most common default lifecycle phases executed.</p>
+<ol>
+<li><code>validate</code>: validate the project is correct and all necessary information is available</li>
+<li><code>compile</code>: compile the source code of the project</li>
+<li><code>test</code>: test the compiled source code using a suitable unit testing framework. These tests should not require the code be packaged or deployed</li>
+<li><code>package</code>: take the compiled code and package it in its distributable format, such as a JAR.</li>
+<li><code>integration-test</code>: process and deploy the package if necessary into an environment where integration tests can be run</li>
+<li><code>verify</code>: run any checks to verify the package is valid and meets quality criteria</li>
+<li><code>install</code>: install the package into the local repository, for use as a dependency in other projects locally</li>
+<li><code>deploy</code>: done in an integration or release environment, copies the final package to the remote repository for sharing with other developers and projects.</li>
+</ol>
+<h4 id="clean-lifecycle"><code>clean lifecycle</code></h4>
+<ol>
+<li><code>clean</code>: This will remove the target directory with all the build data before starting so that it is fresh.</li>
+</ol>
+<h4 id="site-lifecycle"><code>site lifecycle</code></h4>
+<ol>
+<li><code>site</code>: This phase generates a site based upon information on the project&rsquo;s pom. You can look at the documentation generated under target/site.</li>
+</ol>
+<h3 id="phase-和-goal-的关系">Phase 和 Goal 的关系</h3>
+<p>Phases are actually mapped to underlying goals. The specific goals executed per phase is dependant upon the packaging type of the project. For example, package executes jar:jar if the project type is a JAR, and war:war if the project type is - you guessed it - a WAR.</p>
+<p>如果一个Phase下面没有绑定任何Goal，那么这个Phase将不会被执行。</p>
+<h2 id="plugin-与-goal">Plugin 与 Goal</h2>
+<p>Plugin通常来讲也是一个Maven模块，一个Plugin可以提供多个Goal，每个Goal类似于执行特定的任务，一个Goal可以绑定到某个Lifecycle上的某个Phase，当执行Phase的时候实际执行的是绑定在这个Phase上的所有Goal。如果Plugin的Goal没有绑定在Phase上，那么它可以单独执行，使用<code>mvn plugin:goal</code>来执行某个plugin中提供的goal，例如：<code>mvn spring-boot:run</code>。</p>
+<p>Maven中有很多默认插件用来绑定在<code>default lifecycle</code>上实现对Java工程的编译、打包等。</p>
+<p>引用：<a href="https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#a-build-phase-is-made-up-of-plugin-goals">https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#a-build-phase-is-made-up-of-plugin-goals</a></p>
+<h2 id="pomxml-结构"><code>pom.xml</code> 结构</h2>
+<p><code>groupId</code> + <code>artifactId</code> + <code>version</code> = 包的唯一坐标，仅用于Maven中的依赖系统。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!-- This is the top-level element in all Maven pom.xml files. --&gt;</span>
+<span style="color:#f92672">&lt;project&gt;</span>
+  <span style="color:#75715e">&lt;!-- This element indicates what version of the object model this POM is using. 
+</span><span style="color:#75715e">  The version of the model itself changes very infrequently but it is mandatory in order 
+</span><span style="color:#75715e">  to ensure stability of use if and when the Maven developers 
+</span><span style="color:#75715e">  deem it necessary to change the model.--&gt;</span>
+  <span style="color:#f92672">&lt;modelVersion&gt;</span>4.0.0<span style="color:#f92672">&lt;/modelVersion&gt;</span>
+ 
+  <span style="color:#75715e">&lt;!-- This element indicates the unique identifier of the organization 
+</span><span style="color:#75715e">  or group that created the project. The groupId is one of the key identifiers of a project 
+</span><span style="color:#75715e">  and is typically based on the fully qualified domain name of your organization. 
+</span><span style="color:#75715e">  For example org.apache.maven.plugins is the designated groupId for all Maven plugins. 
+</span><span style="color:#75715e">  一般使用公司或大项目的domain --&gt;</span>
+  <span style="color:#f92672">&lt;groupId&gt;</span>com.mycompany.app<span style="color:#f92672">&lt;/groupId&gt;</span>
+
+  <span style="color:#75715e">&lt;!-- This element indicates the unique base name of the primary 
+</span><span style="color:#75715e">  artifact being generated by this project. The primary artifact for a project 
+</span><span style="color:#75715e">  is typically a JAR file. Secondary artifacts like source bundles also use 
+</span><span style="color:#75715e">  the artifactId as part of their final name. A typical artifact produced by Maven 
+</span><span style="color:#75715e">  would have the form &lt;artifactId&gt;-&lt;version&gt;.&lt;extension&gt; (for example, myapp-1.0.jar). --&gt;</span>
+  <span style="color:#f92672">&lt;artifactId&gt;</span>my-app<span style="color:#f92672">&lt;/artifactId&gt;</span>
+
+  <span style="color:#75715e">&lt;!-- This element indicates the version of the artifact generated by the project. 
+</span><span style="color:#75715e">  Maven goes a long way to help you with version management and you will often see 
+</span><span style="color:#75715e">  the SNAPSHOT designator in a version, which indicates that a project is in a state of development. 
+</span><span style="color:#75715e">  We will discuss the use of snapshots and how they work further on in this guide. --&gt;</span>
+  <span style="color:#f92672">&lt;version&gt;</span>1.0-SNAPSHOT<span style="color:#f92672">&lt;/version&gt;</span>
+ 
+  <span style="color:#75715e">&lt;!-- This element indicates the display name used for the project. 
+</span><span style="color:#75715e">  This is often used in Maven&#39;s generated documentation. 一般是文档用的 --&gt;</span>
+  <span style="color:#f92672">&lt;name&gt;</span>my-app<span style="color:#f92672">&lt;/name&gt;</span>
+  <span style="color:#75715e">&lt;!-- This element indicates where the project&#39;s site can be found. 
+</span><span style="color:#75715e">  This is often used in Maven&#39;s generated documentation. 一般是文档用的 --&gt;</span>
+  <span style="color:#f92672">&lt;url&gt;</span>http://www.example.com<span style="color:#f92672">&lt;/url&gt;</span>
+ 
+  <span style="color:#75715e">&lt;!-- This element contains value placeholders accessible anywhere within a POM. --&gt;</span>
+  <span style="color:#f92672">&lt;properties&gt;</span>
+    <span style="color:#f92672">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span style="color:#f92672">&lt;/project.build.sourceEncoding&gt;</span>
+    <span style="color:#f92672">&lt;maven.compiler.source&gt;</span>1.7<span style="color:#f92672">&lt;/maven.compiler.source&gt;</span>
+    <span style="color:#f92672">&lt;maven.compiler.target&gt;</span>1.7<span style="color:#f92672">&lt;/maven.compiler.target&gt;</span>
+  <span style="color:#f92672">&lt;/properties&gt;</span>
+ 
+  <span style="color:#75715e">&lt;!-- This element&#39;s children list dependencies. The cornerstone of the POM. --&gt;</span>
+  <span style="color:#f92672">&lt;dependencies&gt;</span>
+    <span style="color:#f92672">&lt;dependency&gt;</span>
+      <span style="color:#f92672">&lt;groupId&gt;</span>junit<span style="color:#f92672">&lt;/groupId&gt;</span>
+      <span style="color:#f92672">&lt;artifactId&gt;</span>junit<span style="color:#f92672">&lt;/artifactId&gt;</span>
+      <span style="color:#f92672">&lt;version&gt;</span>4.11<span style="color:#f92672">&lt;/version&gt;</span>
+      <span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+  <span style="color:#f92672">&lt;/dependencies&gt;</span>
+ 
+  <span style="color:#75715e">&lt;!-- This element handles things like declaring your project&#39;s directory structure and managing plugins --&gt;</span>
+  <span style="color:#f92672">&lt;build&gt;</span>
+    <span style="color:#75715e">&lt;!-- 一般在这里面配置已经存在的或是自定义的plugin的信息，并且可以配置plugin的goal与phase的绑定关系  --&gt;</span>
+    <span style="color:#f92672">&lt;plugins&gt;&lt;/plugins&gt;</span>
+  <span style="color:#f92672">&lt;/build&gt;</span>
+
+<span style="color:#f92672">&lt;/project&gt;</span>
+</code></pre></div><p>在官网参考<a href="https://maven.apache.org/ref/3.6.3/maven-model/maven.html">完整的描述</a></p>
+<h2 id="总结">总结</h2>
+<h4 id="生命周期组件">生命周期组件</h4>
+<p>Lifecycle由Phases组成，每个Phase是一个插槽，其上面可以安装多个Goal，每个Goal表示一个独立、具体的任务，一个Plugin中可以携带多个Goal，Maven中的内置Plugin已经默认确定了它的Goal与对应Phase的绑定关系，自定义Plugin则需要手段在<code>pom.xml</code>中配置与Phase的关系。</p>
+<h4 id="参考引用">参考引用</h4>
+<ul>
+<li><a href="https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#lifecycle-reference">所有Lifecycle和Phases的完整列举</a></li>
+<li><a href="https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#built-in-lifecycle-bindings">所有内置插件与Lifecycle之间的绑定</a></li>
+<li><a href="https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html">项目的标准结构</a></li>
+</ul>
+</article>
+</main>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

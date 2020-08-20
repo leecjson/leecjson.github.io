@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java on 杰森猫的电子博客</title>
+    <link>/tags/java/</link>
+    <description>Recent content in Java on 杰森猫的电子博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 19 Aug 2020 16:43:53 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>开始使用 Maven 构建 Java 工程</title>
+      <link>/cs/java/using-maven/</link>
+      <pubDate>Wed, 19 Aug 2020 16:43:53 +0800</pubDate>
+      
+      <guid>/cs/java/using-maven/</guid>
+      <description>Repository Maven的仓库分为Local Repository和Remote Repository，一般在执行mvn命令时会从Remote Reposit</description>
+    </item>
+    
+  </channel>
+</rss>
