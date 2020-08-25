@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="keywords" content="C&#43;&#43;,Javascript,Node,Java,C#,编程,前端,Linux">
+  <meta name="description" content="研究计算机程序设计">
+  <meta name="author" content="leecjson">
+  <meta property="og:title" content="基于 MVC 的一点思考" />
+<meta property="og:description" content="我从接触编程到现在对MVC的经历是从完全不懂、似懂非懂、自认为完全理解、再到完全不懂。最近面试被问到MVC是什么，自己越说越模糊，越说越没自" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/cs/misc/thinking-in-mvc/" />
+<meta property="article:published_time" content="2020-08-25T17:49:27+08:00" />
+<meta property="article:modified_time" content="2020-08-25T17:49:27+08:00" />
+<meta itemprop="name" content="基于 MVC 的一点思考">
+<meta itemprop="description" content="我从接触编程到现在对MVC的经历是从完全不懂、似懂非懂、自认为完全理解、再到完全不懂。最近面试被问到MVC是什么，自己越说越模糊，越说越没自">
+<meta itemprop="datePublished" content="2020-08-25T17:49:27+08:00" />
+<meta itemprop="dateModified" content="2020-08-25T17:49:27+08:00" />
+<meta itemprop="wordCount" content="500">
+
+
+
+<meta itemprop="keywords" content="Programming," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="基于 MVC 的一点思考"/>
+<meta name="twitter:description" content="我从接触编程到现在对MVC的经历是从完全不懂、似懂非懂、自认为完全理解、再到完全不懂。最近面试被问到MVC是什么，自己越说越模糊，越说越没自"/>
+<title>基于 MVC 的一点思考 | 杰森猫的电子博客</title>
+
+  <link rel="stylesheet"
+    href="../../../dist/hash/fontawesome.84d8ad2b4fcdc0f0c58247e778133b3a/css/all.min.css">
+  <link rel="stylesheet"
+    href="../../../dist/hash/main.92dcc3c88e2c5b46612c.css">
+</head>
+<body>
+  
+  <header class="app__topbar elevation-z4">
+    <a class="app__brand" href="../../../">杰森猫的电子博客</a>
+    <div class="app__topbar-link-list">
+      <a target="_blank" class="app__topbar-link" href="https://github.com/leecjson"><i class="fab fa-github"></i></a>
+    </div>
+  </header>
+  
+
+  <main>
+  <article class="markdown-body">
+    <h1 style="margin-bottom: 64px;">基于 MVC 的一点思考</h1><p>我从接触编程到现在对MVC的经历是从完全不懂、似懂非懂、自认为完全理解、再到完全不懂。最近面试被问到MVC是什么，自己越说越模糊，越说越没自信。</p>
+<p>我已经记不得自己从什么时候开始完全不顾及此类设计概念，直接上手就开始撸代码。今天再回去思考这些细节发现根本不是那么回事。</p>
+<h2 id="mvc-的一些歧义">MVC 的一些歧义</h2>
+<ul>
+<li>有人说它是设计模式，有人说是架构模式，有人说是复合设计模式。</li>
+</ul>
+<blockquote>
+<p><a href="http://www.ruanyifeng.com/blog/2007/11/mvc.html">http://www.ruanyifeng.com/blog/2007/11/mvc.html</a><br>
+<a href="https://zh.wikipedia.org/wiki/MVC">https://zh.wikipedia.org/wiki/MVC</a><br>
+<a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller</a><br>
+<a href="https://www.zhihu.com/question/31079945">https://www.zhihu.com/question/31079945</a></p>
+</blockquote>
+<ul>
+<li>对MVC的流程设计的歧义。</li>
+</ul>
+<blockquote>
+<p><img style="width: 280px; height: 280px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/MVC-Process.svg/200px-MVC-Process.svg.png" />
+<img style="width: 280px; height: 280px;" src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020106.png" />
+<img style="width: 280px; height: 280px;" src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020108.png" />
+<img style="height: 180px;" src="https://www.runoob.com/wp-content/uploads/2014/08/1200px-ModelViewControllerDiagram2.svg_.png" />
+<img style="height: 260px;" src="https://bkimg.cdn.bcebos.com/pic/b03533fa828ba61edbddc04d4034970a304e59a4?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5" /></p>
+<p><a href="https://www.runoob.com/design-pattern/mvc-pattern.html">https://www.runoob.com/design-pattern/mvc-pattern.html</a><br>
+<a href="http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html">http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html</a><br>
+<a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller</a><br>
+<a href="https://baike.baidu.com/item/MVC%E6%A1%86%E6%9E%B6/9241230">https://baike.baidu.com/item/MVC%E6%A1%86%E6%9E%B6/9241230</a></p>
+</blockquote>
+<p>从各大社区查阅到的信息，不管是GUI程序还是Service应用的开发者，全都混在一起讨论MVC，虽然好像表面上表达的是同一件事，实际上是风马牛不相及，有的人理解View就是界面，有的人又理解View是界面和用户交互逻辑，有的人说Model等于后端数据库，又有的说Controller只做转发，也有的说Controller要做具体逻辑。</p>
+<p>这其实侧面说明MVC是一种非常灵活的方法，但有的时候如果一个理论能说明一切那就什么也说明不了。实际上所有人应该讨论的是应用程序如何分层才对，对于一个应用程序如何正确的设计分层，没有必要生搬硬套，MVC只是分层方法的一种实践，我们应该理解的是自己设计的分层解决了什么问题，又带来了什么问题。</p>
+</article>
+</main>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

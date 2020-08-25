@@ -18,7 +18,7 @@
 <meta itemprop="description" content="Repository Maven的仓库分为Local Repository和Remote Repository，一般在执行mvn命令时会从Remote Reposit">
 <meta itemprop="datePublished" content="2020-08-19T16:43:53+08:00" />
 <meta itemprop="dateModified" content="2020-08-19T16:43:53+08:00" />
-<meta itemprop="wordCount" content="1748">
+<meta itemprop="wordCount" content="1753">
 
 
 
@@ -80,7 +80,7 @@
 <p>Plugin通常来讲也是一个Maven模块，一个Plugin可以提供多个Goal，每个Goal类似于执行特定的任务，一个Goal可以绑定到某个Lifecycle上的某个Phase，当执行Phase的时候实际执行的是绑定在这个Phase上的所有Goal。如果Plugin的Goal没有绑定在Phase上，那么它可以单独执行，使用<code>mvn plugin:goal</code>来执行某个plugin中提供的goal，例如：<code>mvn spring-boot:run</code>。</p>
 <p>Maven中有很多默认插件用来绑定在<code>default lifecycle</code>上实现对Java工程的编译、打包等。</p>
 <p>引用：<a href="https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#a-build-phase-is-made-up-of-plugin-goals">https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#a-build-phase-is-made-up-of-plugin-goals</a></p>
-<h2 id="pomxml-结构"><code>pom.xml</code> 结构</h2>
+<h2 id="坐标文件-pomxml-的结构">坐标文件 <code>pom.xml</code> 的结构</h2>
 <p><code>groupId</code> + <code>artifactId</code> + <code>version</code> = 包的唯一坐标，仅用于Maven中的依赖系统。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!-- This is the top-level element in all Maven pom.xml files. --&gt;</span>
 <span style="color:#f92672">&lt;project&gt;</span>
