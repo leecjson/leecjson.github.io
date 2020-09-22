@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="keywords" content="C&#43;&#43;,Javascript,Node,Java,C#,编程,前端,Linux">
+  <meta name="description" content="研究计算机程序设计">
+  <meta name="author" content="leecjson">
+  <meta property="og:title" content="图标字体对比 SVG 图像 （翻译）" />
+<meta property="og:description" content="在现代web世界中，图标已经成为UI设计中不可磨灭和不可分割的一部分。从导航菜单到社交媒体图标、符号和指示符，图标在互联网上几乎每个网站和应" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/cs/web/svg-vs-font-icons/" />
+<meta property="article:published_time" content="2020-09-22T22:06:58+08:00" />
+<meta property="article:modified_time" content="2020-09-22T22:06:58+08:00" />
+<meta itemprop="name" content="图标字体对比 SVG 图像 （翻译）">
+<meta itemprop="description" content="在现代web世界中，图标已经成为UI设计中不可磨灭和不可分割的一部分。从导航菜单到社交媒体图标、符号和指示符，图标在互联网上几乎每个网站和应">
+<meta itemprop="datePublished" content="2020-09-22T22:06:58+08:00" />
+<meta itemprop="dateModified" content="2020-09-22T22:06:58+08:00" />
+<meta itemprop="wordCount" content="4042">
+
+
+
+<meta itemprop="keywords" content="Web,HTML,CSS," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="图标字体对比 SVG 图像 （翻译）"/>
+<meta name="twitter:description" content="在现代web世界中，图标已经成为UI设计中不可磨灭和不可分割的一部分。从导航菜单到社交媒体图标、符号和指示符，图标在互联网上几乎每个网站和应"/>
+<title>图标字体对比 SVG 图像 （翻译） | 杰森猫的电子博客</title>
+
+  <link rel="stylesheet"
+    href="../../../dist/hash/fontawesome.84d8ad2b4fcdc0f0c58247e778133b3a/css/all.min.css">
+  <link rel="stylesheet"
+    href="../../../dist/hash/main.92dcc3c88e2c5b46612c.css">
+</head>
+<body>
+  
+  <header class="app__topbar elevation-z4">
+    <a class="app__brand" href="../../../">杰森猫的电子博客</a>
+    <div class="app__topbar-link-list">
+      <a target="_blank" class="app__topbar-link" href="https://github.com/leecjson"><i class="fab fa-github"></i></a>
+    </div>
+  </header>
+  
+
+  <main>
+  <article class="markdown-body">
+    <h1 style="margin-bottom: 64px;">图标字体对比 SVG 图像 （翻译）</h1><p>在现代web世界中，图标已经成为UI设计中不可磨灭和不可分割的一部分。从导航菜单到社交媒体图标、符号和指示符，图标在互联网上几乎每个网站和应用程序中都占有重要地位，而且其受欢迎程度近期没有下降的迹象。因此，每个开发人员都必须面对这个难题：应该使用哪种图标集？</p>
+<p>传统上，开发人员只能依靠图像格式来满足他们的需求。然而，使用图像作为图标在渲染质量和分辨率方面的表现非常糟糕。但是现在开发者有两种选择：图标字体和SVG图标(可缩放矢量图形)。这是一场将开发社区分成两派的争论，没有任何迹象表明这一争论会减弱。这两种图标格式的支持者都在争论这两种图标格式的优点。然而，最近对于SVG图标格式已经形成了一种普遍的共识和势头。SVG图标系统确保了更好的性能、更高的可访问性标准、高呈现质量、无与伦比的灵活性和广泛的定制性。在本文中，我们将简要探讨web图标的历史，字体图标与SVG图标的优缺点。</p>
+<h2 id="web-icons-的简史">Web Icons 的简史</h2>
+<p>但是这种技术存在大量的缺点。使用图像显示web图标的最大缺点是缺乏可伸缩性。像PNG和JPEG这样的图像格式在放大或缩小的时候会遭受渲染质量的巨大损失。另一个主要缺点是，如果网页使用多个图像作为图标，每一个都会触发一个新的HTTP请求，这会严重降低性能。最后，由于图像是不可伸缩的，每个图像图标都需要有针对不同屏幕大小的多种分辨率格式。另外，如果一个图像图标具有悬停效果，那么需要使用Javascript/jQuery分别加载一个具有悬停状态的新图像。尽管使用图像作为图标仍然很常见，但这是一种必须不惜一切代价避免的糟糕做法。</p>
+<p>21世纪初开始了图像精灵的新趋势。一个图像精灵仅仅是一个单独的图像集合在一起形成一个单一的图像。图像精灵将所有图标安排在一个GIF或PNG文件中，并加载为CSS背景图像。通过调整CSS背景属性，只显示所需的图标。Sprites被证明是web字体的革命性发明，它解决了由单个图像触发多个HTTP服务器请求的问题。这节约了带宽，提高了网站加载速度。此外，由于背景图像对文本浏览器和屏幕阅读器来说是不可见的，因此解决了很多可访问性问题，而图像被视为内容。</p>
+<p><img src="https://www.lambdatest.com/blog/wp-content/uploads/2019/03/pasted-image-0.png" alt="sprite"></p>
+<p>这里我们有一个图像精灵。与使用24个单独的图像不同，我们使用这个单一的精灵图像来减少服务器请求和带宽。</p>
+<p>使用CSS，我们可以使用背景位置属性，只显示我们想要的图标并隐藏其它内容。请注意<code>img_translator.gif</code>只是一个小的透明图像，因为<code>src</code>属性不能保持空。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+  &lt;<span style="color:#f92672">style</span>&gt;
+  #char1 {
+  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">75</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">75</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">background</span>: url(<span style="color:#e6db74">https://opengameart.org/sites/default/files/last-guardian-sprites_0.png</span>) <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>;
+  }
+  
+  #char2{  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">75</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">75</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">background</span>: url(<span style="color:#e6db74">https://opengameart.org/sites/default/files/last-guardian-sprites_0.png</span>) <span style="color:#ae81ff">-85</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span>;
+  }
+  &lt;/<span style="color:#f92672">style</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+  &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;char1&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;img_trans.gif&#34;</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span> <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span>&gt;&lt;<span style="color:#f92672">br</span>&gt;&lt;<span style="color:#f92672">br</span>&gt;
+  &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;char2&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;img_trans.gif&#34;</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span> <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><p><img src="https://www.lambdatest.com/blog/wp-content/uploads/2019/03/pasted-image-0-12.png" alt="sprite"></p>
+<h2 id="革命性的图标字体">革命性的图标字体</h2>
+<p>图标的下一个发展阶段出现在2012年的图标字体上。与图像和精灵不同，图标字体能够完美地缩放到任何分辨率，而不会降低或丧失视觉质量。尽管图像精灵有了很大的改进，但它仍然有很多缺点。如果您需要更改图标的颜色或分辨率，这将意味着需要一个全新的图像。另一方面，图标字体本质上是简单的文本。我们可以使用CSS样式规则来轻松地改变和修改颜色，大小/分辨率，应用<code>box-shadow</code>，应用CSS动画和过渡。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">html</span>&gt;
+ 
+&lt;<span style="color:#f92672">head</span>&gt;
+   &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://use.fontawesome.com/releases/v5.7.2/css/all.css&#34;</span> <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr&#34;</span>
+       <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span>&gt;
+   &lt;<span style="color:#f92672">style</span>&gt;
+       <span style="color:#f92672">body</span> {
+           <span style="color:#66d9ef">background-color</span>: rgba(<span style="color:#ae81ff">66</span>, <span style="color:#ae81ff">117</span>, <span style="color:#ae81ff">156</span>, <span style="color:#ae81ff">0.123</span>);
+       }
+ 
+       <span style="color:#f92672">h1</span><span style="color:#f92672">,</span> .<span style="color:#a6e22e">icon-fonts</span> {
+           <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">center</span>;
+       }
+ 
+       <span style="color:#f92672">i</span> {
+           <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">75</span><span style="color:#66d9ef">px</span>;
+           <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">inline</span><span style="color:#f92672">-</span><span style="color:#66d9ef">block</span>;
+           <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
+       }
+ 
+       .<span style="color:#a6e22e">fa-facebook</span> {
+           <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#3b5998</span>;
+       }
+ 
+       .<span style="color:#a6e22e">fa-twitter</span> {
+           <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#38A1F3</span>;
+       }
+ 
+       .<span style="color:#a6e22e">fa-instagram</span> {
+           <span style="color:#66d9ef">background</span>: <span style="color:#66d9ef">-moz-</span>linear-gradient(<span style="color:#ae81ff">45</span><span style="color:#66d9ef">deg</span>, <span style="color:#ae81ff">#f09433</span> <span style="color:#ae81ff">0</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">#e6683c</span> <span style="color:#ae81ff">25</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">#dc2743</span> <span style="color:#ae81ff">50</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">#cc2366</span> <span style="color:#ae81ff">75</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">#bc1888</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>);
+           <span style="color:#66d9ef">background</span>: <span style="color:#66d9ef">-webkit-</span>linear-gradient(<span style="color:#ae81ff">45</span><span style="color:#66d9ef">deg</span>, <span style="color:#ae81ff">#f09433</span> <span style="color:#ae81ff">0</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">#e6683c</span> <span style="color:#ae81ff">25</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">#dc2743</span> <span style="color:#ae81ff">50</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">#cc2366</span> <span style="color:#ae81ff">75</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">#bc1888</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>);
+           <span style="color:#66d9ef">background</span>: linear-gradient(<span style="color:#ae81ff">45</span><span style="color:#66d9ef">deg</span>, <span style="color:#ae81ff">#f09433</span> <span style="color:#ae81ff">0</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">#e6683c</span> <span style="color:#ae81ff">25</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">#dc2743</span> <span style="color:#ae81ff">50</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">#cc2366</span> <span style="color:#ae81ff">75</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">#bc1888</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>);
+           <span style="color:#66d9ef">-webkit-</span><span style="color:#66d9ef">background-clip</span>: <span style="color:#66d9ef">text</span>;
+           <span style="color:#66d9ef">background-clip</span>: <span style="color:#66d9ef">text</span>;
+           <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">transparent</span>;
+       }
+   &lt;/<span style="color:#f92672">style</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+ 
+&lt;<span style="color:#f92672">body</span>&gt;
+   &lt;<span style="color:#f92672">h1</span>&gt;ICON FONTS USING FONT AWESOME LIBRARY&lt;/<span style="color:#f92672">h1</span>&gt;
+   &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon-fonts&#34;</span>&gt;
+       &lt;<span style="color:#f92672">i</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fab fa-facebook&#34;</span>&gt;&lt;/<span style="color:#f92672">i</span>&gt;
+       &lt;<span style="color:#f92672">i</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fab fa-twitter&#34;</span>&gt;&lt;/<span style="color:#f92672">i</span>&gt;
+       &lt;<span style="color:#f92672">i</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fab fa-instagram&#34;</span>&gt;&lt;/<span style="color:#f92672">i</span>&gt;
+   &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+ 
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><p><img src="https://www.lambdatest.com/blog/wp-content/uploads/2019/03/pasted-image-0-13.png" alt="iconfont"></p>
+<p>图标字体无疑是网络图标最广泛的解决方案。然而，就像CSS图像精灵一样，图标字体也正被SVG取代。虽然图标字体是矢量，使他们可伸缩到任何分辨率，但他们仍然不是免费的障碍。使用图标字体可能会导致生成多个服务器请求，还可能导致在字体库仍在加载期间不可见的文本闪烁。如果浏览器由于某种原因不能理解图标字体，则显示一个空白。这就是为什么许多开发人员更喜欢后者的图标字体而不是SVG图标的原因。</p>
+<h2 id="眼花缭乱的svg图标">眼花缭乱的SVG图标!</h2>
+<p>正如我在介绍中所说的，SVG代表“可伸缩向量图形”。SVG图标的主要目的是用XML格式定义基于矢量的图形。SVG图标正逐渐成为web字体和图像的新标准。SVG不是一种字体或图像，而是直接提供给浏览器的XML代码块，浏览器将以预期的方式呈现它。越来越多的开发人员抛弃了图标字体，开始采用svg。SVG不仅提供了无与伦比的能力，可以缩放到任何大小而不会出现任何质量下降，而且还提供了比图标字体更好的抗锯齿能力。此外，您还可以编辑、着色或使用动画在SVG图标的每个单独部分，这与传统的图标字体不同。另外，因为SVG图标只是一段代码，所以它们的大小比基于图像的PNG JPEG图标小得多。尽管在文件大小方面图标字体险胜SVG。我将在稍后的博客中详细比较图标字体和SVG图标。</p>
+<p>尽管有多种使用SVG的方法，但我们最感兴趣的是“内嵌SVG”。使用内联SVG图标而不是外部SVG图标的主要好处是，它不会增加服务器请求，否则会对站点的性能产生不利影响。这是一个嵌入SVG图像的例子：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+ 
+   &lt;<span style="color:#f92672">h1</span>&gt;INLINE SVG&lt;/<span style="color:#f92672">h1</span>&gt;
+ 
+   &lt;<span style="color:#f92672">svg</span> <span style="color:#a6e22e">version</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1.1&#34;</span> <span style="color:#a6e22e">baseProfile</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;full&#34;</span> <span style="color:#a6e22e">xmlns</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://www.w3.org/2000/svg&#34;</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;500&#34;</span> <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;500&#34;</span>&gt;
+       &lt;<span style="color:#f92672">rect</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100%&#34;</span> <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100%&#34;</span> <span style="color:#a6e22e">stroke</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#9b59b6&#34;</span> <span style="color:#a6e22e">stroke-width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;5&#34;</span> <span style="color:#a6e22e">fill</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#2ecc71&#34;</span> /&gt;
+       &lt;<span style="color:#f92672">circle</span> <span style="color:#a6e22e">cx</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;250&#34;</span> <span style="color:#a6e22e">cy</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;250&#34;</span> <span style="color:#a6e22e">r</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;150&#34;</span> <span style="color:#a6e22e">fill</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#f1c40f&#34;</span> <span style="color:#a6e22e">stroke</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#e74c3c&#34;</span> <span style="color:#a6e22e">stroke-width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;5&#34;</span> /&gt;
+       &lt;<span style="color:#f92672">text</span> <span style="color:#a6e22e">x</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;250&#34;</span> <span style="color:#a6e22e">y</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;250&#34;</span> <span style="color:#a6e22e">font-size</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;20&#34;</span> <span style="color:#a6e22e">text-anchor</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;middle&#34;</span> <span style="color:#a6e22e">fill</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;black&#34;</span>&gt;THIS IS AN INLINE SVG&lt;/<span style="color:#f92672">text</span>&gt;
+       Sorry, your browser does not support inline SVG.
+   &lt;/<span style="color:#f92672">svg</span>&gt;
+ 
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><p><img src="https://www.lambdatest.com/blog/wp-content/uploads/2019/03/pasted-image-0-14.png" alt="svgdemo"></p>
+<h2 id="对比图标字体与svg图标">对比图标字体与SVG图标</h2>
+<p>我们将看8个关键指标来比较图标字体和SVG图标。</p>
+<h3 id="1-文件大小">1. 文件大小</h3>
+<p>说到文件大小，图标字体比SVG有一点优势。如果使用内联SVG而不是外部SVG图标文件，文件大小可能会大得多。造成这种情况的一个主要原因是，与外部SVG不同，内联SVG不会被浏览器缓存。减少文件大小的一种方法是SVG精灵。然而，SVG精灵只能使用过滤器或遮罩着色，而浏览器对它们的支持很差。对于多颜色图标，使用内联SVG是必要的。</p>
+<p>关于图标字体和SVG图标的判定：就文件大小而言，图标字体比SVG略微有优势。然而，文件大小的差异不是那么明显，可以忽略。</p>
+<h3 id="2-可访问性">2. 可访问性</h3>
+<p>相对于图标字体，SVG图标的一个主要优点是其优越的可访问性。SVG有内置的语义元素，比如<code>&lt;title&gt;</code>和<code>&lt;desc&gt;</code>，这使得它可以被屏幕阅读器和文本浏览器访问。与图标字体不同，SVG被当作图像而不是文本。而且，SVG兼容WAI-ARIA规范aria-labelledby属性。</p>
+<p>关于图标字体和SVG图标的判断：当谈到易访问性时，SVG是明显的赢家。</p>
+<h3 id="3-性能">3. 性能</h3>
+<p>正如我们之前讨论的，图标字体是标准的字体，可以很容易地缓存和提高加载速度。然而，这一优点的主要缺点是需要额外的HTTP服务器请求来进行缓存。另一方面，它与内联SVG的情况相反。内联SVG不发出任何额外的服务器请求，但是浏览器不能缓存它，因为它被认为是HTML代码块。这可以通过使用外部SVG文件来解决。
+选择哪个图标系统是正确的取决于你的需要-如果你需要一些图标没有任何多色的修改和动画，那么图标字体是正确的选择。但是，如果您使用大量的彩色和动画图标，那么SVG应该是正确的选择。图标字体的另一个问题是，它们可能会偶尔遭遇失败。加载错误会留下黑色的空格，这会对页面设计产生不利影响。
+关于图标字体和SVG图标的判定：SVG图标有一点优势，因为图标字体会偶尔失败。</p>
+<h3 id="4-可扩展性">4. 可扩展性</h3>
+<p>如前所述，图标字体被浏览器视为常规字体。因此，图标字体容易受到浏览器实现的抗锯齿技术的影响，这会使图标的视觉质量变得模糊和不那么清晰。另一方面，浏览器将SVG当作图像来处理，所以在SVG上不应用反混叠规则。这确保了SVG在所有分辨率下都是锐利的和像素完美的，没有任何明显的退化。</p>
+<p>图标字体与SVG图标的可伸缩性：SVG图标字体比图标字体有很大的优势。</p>
+<h3 id="5-动画">5. 动画</h3>
+<p>与图像图标相比，图标字体允许使用标准的CSS样式规则进行适当程度的定制，但就灵活性而言，图标字体是有限的。CSS样式的修改仅限于单色、大小、标准变换和动画。svg不仅拥有和图标字体一样的CSS控件，还拥有额外的CSS描边属性和过滤器。每个单独的笔画在SVG图标可以动画独立。例如，在时钟图标动画，邮件打开/关闭动画，通知钟动画。svg允许修改矢量的各个部分来创建多色图标和图像，甚至可以为每个单独的笔画添加动画。
+图标字体vs SVG图标的结论-动画:与图标字体相比，SVG在修改和样式控制方面的通用性更高。</p>
+<h3 id="6-定位">6. 定位</h3>
+<p>由于图标字体是使用伪元素插入的，它们的定位有时是具有挑战性的。您可能需要调整不同的CSS属性，如字体大小、行高、单词间距、字母间距、垂直对齐，以便将图标字体对齐到所需的位置。对于svg来说，定位要简单得多。您只需要指定大小。</p>
+<p>图标字体与SVG图标的定位:与图标字体相比，定位SVG图标要容易得多。</p>
+<h3 id="7-开发">7. 开发</h3>
+<p>图标字体通常被认为使用@font-face规则、cdn或CSS样式表部署更快、更简单。另一方面，有多种方法可以将svg用作常规图像、背景图像、对象或内联svg。到目前为止，内联SVG是部署SVG图标最流行的方式，因为它允许进行高度修改，而不会触发额外的服务器请求以消耗性能。</p>
+<p>图标字体vs SVG图标的结论-部署:没有明显的赢家。图标字体更容易部署，但svg的修改程度更高，性能更好。</p>
+<h3 id="8-浏览器兼容性">8. 浏览器兼容性</h3>
+<p>关于跨浏览器兼容性，图标字体比svg有明显的优势。图标字体享受完全支持跨所有桌面和移动浏览器和所有浏览器版本，包括遗留IE6到IE8。不过，SVG(基本支持)提供了跨浏览器的兼容性，除了IE8及其以下版本。类似的情况也出现在一些古老版本的Android浏览器，Firefox和Safari上。</p>
+<p><img src="https://www.lambdatest.com/blog/wp-content/uploads/2019/03/pasted-image-0-15.png" alt=""></p>
+<p>如果我们考虑缩放实现SVG，那么跨浏览器的兼容性将是一个重大挑战。例如: SVG效果</p>
+<p>对于SVG爱好者来说，这看起来有点可怕和不幸。幸运的是,我们有自动跨浏览器测试工具,如LambdaTest谁能帮助我们快速识别任何异常都是呈现SVG对超过2000的浏览器和浏览器版本通过硒网格云以及手动实况互动测试你的web通过加载在你想要的操作系统/浏览器通过一个VM配置由LambdaTest云服务器。</p>
+<p>关于图标字体与SVG图标跨浏览器兼容性的结论:与SVG相比，图标字体享有更广泛的跨浏览器兼容性支持。但是，您可以尝试通过使用必要的回退或填充填充来填补这个空白。</p>
+</article>
+</main>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

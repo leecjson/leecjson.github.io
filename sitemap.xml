@@ -4,22 +4,42 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-08-25T17:49:27+08:00</lastmod>
+    <lastmod>2020-09-22T22:06:58+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/cs/</loc>
-    <lastmod>2020-08-25T17:49:27+08:00</lastmod>
+    <lastmod>2020-09-22T22:06:58+08:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/programming/</loc>
-    <lastmod>2020-08-25T17:49:27+08:00</lastmod>
+    <loc>/tags/css/</loc>
+    <lastmod>2020-09-22T22:06:58+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/html/</loc>
+    <lastmod>2020-09-22T22:06:58+08:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/</loc>
+    <lastmod>2020-09-22T22:06:58+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/web/</loc>
+    <lastmod>2020-09-22T22:06:58+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/cs/web/svg-vs-font-icons/</loc>
+    <lastmod>2020-09-22T22:06:58+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/programming/</loc>
     <lastmod>2020-08-25T17:49:27+08:00</lastmod>
   </url>
   
